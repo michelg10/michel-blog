@@ -1,0 +1,604 @@
+<!doctype html>
+<html style='font-size:15px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-width: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+mark {
+    background-color: transparent;
+    text-decoration: underline;
+    color: rgb(51, 51, 51); /* I don't know why this is needed but for some reason it doesn't inherit the color */
+}
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>A Polaroid Flip Review</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='a-polaroid-flip-field-report-1000-shots-later'><span>A Polaroid Flip Field Report: 1000 shots later</span></h1><p><em><span>Published July 29th, 2025</span></em></p><hr /><p><span>tl;dr</span></p><p><strong><span>Get the Flip if you want a (typically) sharp, easy-to-use point-and-shoot that you can occasionally use for intentional shooting.</span></strong></p><p><span>✅ </span><strong><span>Pros</span></strong></p><ul><li><p><span>Lens is reasonably sharp with the opportunity for perfect sharpness in manual mode</span></p></li><li><p><span>A powerful flash for beautiful portraits in any light</span></p></li><li><p><span>Meter works perfectly most of the time except in strong backlighting situations</span></p></li><li><p><span>A fast, responsive, mostly full-featured app experience</span></p></li><li><p><span>Clamshell, toy-like design protects the camera, is handy for long exposures without a tripod, and is great for social situations</span></p></li></ul><p><span>❌ </span><strong><span>Cons</span></strong></p><ul><li><p><span>Autofocus is unreliable and its focus area is too wide</span></p></li><li><p><span>Flaring is extremely strong when shooting against bright light sources (e.g. the sun, street lamps)</span></p></li><li><p><span>Viewfinder is quite small and overly recessed, making it difficult to frame shots and causing many to be off‑level</span></p></li><li><p><span>Manual focus via the app does not work to override minimum focus warning, making it difficult to take through-the-window shots</span></p></li></ul><hr /><p><span>For context, I am an enthusiast and occasional professional photographer regularly shooting both film and digital. The Polaroid Flip is the first Polaroid product I&#39;ve owned, and I have not previously shot instant film aside from the occasional Instax mini. </span></p><p><span>The Flip is running the latest firmware (version 1.00.5) as of this writing. All sample photos in this report were taken by me on the same Polaroid Flip. Photos were scanned with the Epson Perfection V600. The only edits were cropping and scaling. </span><strong><span>Note that this means the photo samples shown look less vibrant, with lower contrast, less accurate colors, and higher black levels compared to the physical prints</span></strong><span>. This can be very easily fixed with a curve and saturation adjustment, but I wanted to keep the photos as original as possible.</span></p><hr /><h2 id='frontmatter'><span>Frontmatter</span></h2><p><strong><span>My report focuses on my experience with the camera and technical insights from extended shooting</span></strong><span>. It does not include regurgitations of the Flip&#39;s specs. For that, see the </span><a href='https://www.polaroid.com/en_us/products/flip-starter-set'><span>official Polaroid site</span></a><span> or the </span><a href='https://documents.cdn.ifixit.com/RjKxSgZvTDgWOM1M.pdf'><span>user manual</span></a><span>. I have not used other instant film cameras extensively and will therefore not compare the Flip to other instant film cameras. Note that, though the Flip is relatively inexpensive at ~</span><span>$</span><span>200 MSRP, film is </span><span>$</span><span>2/exposure. Most faces in photos are blurred for privacy. </span></p><p><span>This is an entirely independent report. I have no contacts with Polaroid or its employees, and this report has not been shared prior to its publication; the Flip and all film were purchased with my own money.</span></p><h2 id='design-and-build-beautiful-functional-fun'><span>Design and Build: Beautiful, functional, fun</span></h2><p><img src="res/polaroid-flip-review/flip_image.png" alt="The Polaroid Flip in white" style="zoom: 25%;" /></p><p><em><span>The Polaroid Flip in white</span></em></p><hr /><p><strong><span>I did not expect myself to love the look of the Flip as much as I did.</span></strong><span> I own the white variant, and I found the black, orange, and white three-tone styling both retro and modern in the best way. The camera was consistently satisfying to use – the </span><em><span>snap</span></em><span> of the clamshell as it closes, the </span><em><span>whirr</span></em><span> of the motor as the film ejects, and the </span><em><span>pop</span></em><span> of the vacuum tube flash all made the photo-taking experience feel so rewarding that I found myself aching to press the shutter button.</span></p><p><span>The camera does require quite a bit of force to operate – opening and closing the clamshell requires a surprising amount of force, as does inserting film. The clamshell, focus system, and the bottom cover all move and operate with a slight rattle. Far from making the camera feel flimsy, I found that it made the camera feel durable. The amount of force I need to exert just to open the camera for shooting was, for me, a constant reminder of &quot;you can be rough with me; I&#39;m built to take it and more.&quot; Part of this feeling of indestructibility is that the body naturally flips down to protect the Flip&#39;s lens and other fragile components when not in use. I&#39;ve dropped the Flip a couple of times already, with the camera showing no dents (though a few scratches) and no impact to functionality. </span></p><p><span>The bubbly plastic design feels fun and unobtrusive; as someone who would show up to karaoke with a massive mirrorless camera, there&#39;s a significant difference in how people react to my black behemoth and the cute, bubbly Flip that looks like a well-engineered toy. The Flip puts people at ease so they can just be themselves. Subsequently, I&#39;ve captured more genuine human moments with the Flip and have had countless more strangers ask to be photographed with the Flip. This is not to mention the excitement of collectively watching a picture develop and giving away a Polaroid.</span></p><p><strong><span>The only gripe I have with the camera&#39;s design is the viewfinder</span></strong><span>; the viewfinder is tiny and hard to see, has no frame lines, no guide lines, and is overly recessed into the body. This recession meant that I had to turn my head to fully put my eye on the viewfinder, throwing off my sense of level and leading to many tilted photos.</span></p><p>&nbsp;</p><h2 id='metering-mostly-perfect'><span>Metering: (Mostly) perfect</span></h2><p><span>The meter appears to function much like an averaging meter that covers around 70% of the frame. But despite owning and successfully using many film cameras with averaging meters, I have yet to internalize the Flip&#39;s meter.</span></p><p><span>Even after a thousand shots, I would occasionally get overexposed or underexposed shots, and the flash sometimes over-fires in close range (see missed exposure examples below). This might be due to the lack of dynamic range in Polaroid film rather than the meter itself, but keep in mind that you will get an overexposed or underexposed image every once in a while.</span></p><p><span>When there&#39;s heavy backlighting or extreme dynamic range, I resort to either going into manual mode with the app or the tried-and-true method of reframing to point at something with less dynamic range, half-pressing the shutter to lock exposure, and then shooting my intended subject. </span><strong><span>Overall, this meter hits way more often than it doesn&#39;t, and there were many times where I put the camera on a tripod, trusted it to auto-expose, and got a picture that was exposed so perfectly I couldn&#39;t have done it better manually.</span></strong></p><p>&nbsp;</p><p><img src="res/polaroid-flip-review/exposure-failure-collage.jpg" referrerpolicy="no-referrer" alt="12 example images showing incorrect exposure from the Flip"></p><p><em><span>12 examples of missed exposure. Starting from the top left photo and working left to right, top to bottom:</span></em></p><ul><li><p><span>Image 1: Overexposure; overly bright flash, close range</span></p></li><li><p><span>Image 2: Underexposure; backlighting</span></p></li><li><p><span>Image 3: Overexposure; overly bright flash, close range</span></p></li><li><p><span>Image 4: Underexposure; backlighting</span></p></li><li><p><span>Image 5: Underexposure; backlighting, flash manually deactivated</span></p></li><li><p><span>Image 6: Overexposure; no clear reason, flash manually deactivated</span></p></li><li><p><span>Image 7: Underexposure; backlighting</span></p></li><li><p><span>Image 8: Underexposure; backlighting, lack of flash (likely bad metering, but possible insufficient flash power)</span></p></li><li><p><span>Image 9: Same as Image 8</span></p></li><li><p><span>Image 10: Underexposure; backlighting</span></p></li><li><p><span>Image 11: Overexposure; overly bright flash, close range</span></p></li><li><p><span>Image 12: Underexposure; backlighting</span></p></li></ul><p>&nbsp;</p><h2 id='autofocus-exceptionally-frustrating'><span>Autofocus: Exceptionally frustrating</span></h2><p><strong><span>Autofocus is where the Flip disappointed me the most due to its overly wide autofocus area and the lack of feedback.</span></strong></p><p><span>The Polaroid Flip comes with a new sonar-based autofocus system that, as far as I can tell, focuses on the closest object in its targeting area, lacking any of the smarts such as face-detect AF or even multi-point focus in the DSLRs of yesteryear. That in itself is not a problem; the problem is the ridiculous width of the targeting area – the focus area is so wide that it extends </span><em><strong><span>beyond the edges of the viewfinder frame</span></strong></em><span>. This leads to very problematic focusing for many situations that I (and I believe many others) commonly use the Flip in, like:</span></p><ul><li><p><strong><span>Dinners</span></strong><span>: The Flip would focus on the table and the dishes instead of the people across the table</span></p></li><li><p><strong><span>Outstretched Hands</span></strong><span>: The Flip would focus on what is held in the hand (like a Harry Potter wand) rather than the face</span></p></li><li><p><strong><span>Scenes with complex geometry</span></strong><span>: It is impossible to use autofocus for a portrait of someone in leaves, a cat hiding in rocks, or someone behind bars</span></p></li></ul><p><span>What makes the autofocus worse is that there&#39;s almost no way to know what the Flip decided to focus on. There&#39;s no indication of focus zone on the otherwise-rich LED display, with the sole feedback being the </span><em><span>whir</span></em><span> of the lens when the camera switches a focus zone. The only precise indication of focus is </span><em><span>in the app with the camera in manual mode</span></em><span>, where the current focus zone would be lightly highlighted.</span></p><p><strong><span>Regardless, over the course of a thousand shots, I got more and more shots in focus by:</span></strong></p><ol start='' ><li><p><span>Using autofocus for flat subjects with </span><em><span>nothing at all</span></em><span> between the Flip and the subject, focusing multiple times to avoid occasional mismeasurements (about 4 out of 8 shots)</span></p></li><li><p><span>Using a dance of focus-recompose, removing objects in front of the subject, performing multiple focus measurements, and the </span><em><span>whir</span></em><span> of a switched focus zone to guesstimate focus for more complex situations (about 3 out of 8 shots)</span></p></li><li><p><span>Using my iPhone to measure distance using its LiDAR sensor and switching the camera into manual focus with the Polaroid app for the most complex situations (about 1 out of 8 shots)</span></p></li><li><p><span>Simply not taking the photo when I am not confident the autofocus will hit</span></p></li></ol><p><span>With those techniques, I reduced my miss rate from about 2 out of 8 shots to a nearly perfect </span><strong><span>1 out of 100 shots</span></strong><span>. Regardless of my empirical accuracy in using the autofocus, the lack of autofocus feedback and general flakiness of the system (half-pressing the shutter while aimed at the same place will sometimes result in different focus reads) still had me feeling anxious for almost every shot – would the Flip focus on the table, the ceiling, the wall next to me, or the subject? My near-perfection with focus is hard-earned; I found myself bending myself and the scene to the Flip, interrupting dinner to move candles out of the way so the Flip wouldn&#39;t focus on them and using manual focus every time I thought the scene was remotely complex. </span></p><p><em><strong><span>tl;dr, the Flip&#39;s autofocus has a massive learning curve and can be accurate, but the anxiety of a missed shot never left me.</span></strong></em></p><hr /><p><strong><span>Aside</span></strong><span>: The width of the autofocus was very inadequately communicated in the camera&#39;s manual; my first shots with the Flip were all out-of-focus, and I almost thought the camera was broken. If an experienced photographer found it hard to figure out the Flip&#39;s autofocus system, I can only imagine how difficult it must be for a novice.</span></p><p>&nbsp;</p><p><img src="res/polaroid-flip-review/misfocus-collage.jpg" referrerpolicy="no-referrer" alt="12 example images showing missed focus from the Flip"></p><p><em><span>12 examples of missed focus. Starting from the top left photo and working left to right, top to bottom:</span></em></p><ul><li><p><span>Image 1: Flip focused on table below (out of frame)</span></p></li><li><p><span>Image 2: Flip focused on side walls instead of subject</span></p></li><li><p><span>Image 3: Flip focused on table below (out of frame)</span></p></li><li><p><span>Image 4: Flip focused on rocks</span></p></li><li><p><span>Image 5: Flip focused on pavement</span></p></li><li><p><span>Image 6: Flip focused on bars</span></p></li><li><p><span>Image 7: Flip focused on walls and railing</span></p></li><li><p><span>Image 8: Flip focused on table and dishes (visible in frame)</span></p></li><li><p><span>Image 9: Flip focused on table (barely visible at the very bottom of the frame)</span></p></li><li><p><span>Image 10: Flip focused on towel instead of subject</span></p></li><li><p><span>Image 11: Flip focused on table corner closest to camera, missing subject</span></p></li><li><p><span>Image 12: Flip focused on table below (out of frame)</span></p></li></ul><p>&nbsp;</p><h2 id='optics-a-sharp-flare-y-lens-and-a-powerful-flash'><span>Optics: A sharp, flare-y lens and a powerful flash</span></h2><p><strong><span>The Flip&#39;s lens system is sharp</span></strong><span>, the colors it produces vibrant, and the limiting factor for many shots is the film, not the Flip. The f/10 maximum aperture allows for shots in surprisingly low light (I found myself comfortably handholding exposures as long as 1/10s) and is capable of stunning bokeh and shallow depth-of-field (see examples below). </span></p><p><strong><span>But where the lens fails is in flare.</span></strong><span> As long as the sun or another bright light source is in frame, even in the corner, the Flip&#39;s contrast plummets at worst and at best creates streaks in the image. The lens is surprisingly flare-prone, and makes shooting with any bright light source in frame nearly impossible (see examples below).</span></p><p><strong><span>The flash is unexpectedly powerful</span></strong><span>, with Polaroid rating it for 4.5m @ f/8. For context, this is more power than the most powerful dedicated compact flashes like the Godox iM30. This means that the Flip&#39;s flash works perfectly as a fill flash for portraits in direct sunlight and can even light up a dark room (see examples below).</span></p><p><span>The Flip&#39;s lens system is surprisingly capable for more deliberate photos in manual mode; in short, when stopped down to f/64, the Flip&#39;s lens allows for extremely sharp shots for any subject from 0.5m to infinity (technical explanation: at f/64, the circle of confusion from misfocus and diffraction is below the resolving power of the film for focus distances from 0.5m to infinity). Because of this sharpness and the exceptionally powerful flash, I used the Flip in manual mode through the app significantly more often than I expected; I shot portraits, landscapes, and long exposures, and the results from those manual exposures are nothing short of stunning (see Gallery section).</span></p><p>&nbsp;</p><p><em><span>Note for using the Flip at f/64 for perfect sharpness: f/64 means that you&#39;d likely need a very long exposure time, requiring a flat surface or a tripod. For long exposure times, be mindful of </span><a href='https://en.wikipedia.org/wiki/Reciprocity_(photography)#Reciprocity_failure'><span>reciprocity failure</span></a><span>, which kicks in for exposures longer than a second; I might write a post on reciprocity failure for Polaroid film in the future.</span></em></p><p>&nbsp;</p><p><img src="res/polaroid-flip-review/flare-collage.jpg" referrerpolicy="no-referrer" alt="12 example images showing flaring from the Flip"></p><p><em><span>12 examples of flaring from the Flip. Almost all examples involve sunlight. Pictures 7 and 12 involve artificial light. As shown, the Flip suffers from significant bloom, extremely significant contrast loss from flare, and occasional ghosting. This is a small subset of examples; about 5% of my shots are affected by serious flare.</span></em></p><p>&nbsp;</p><hr /><p><img src="res/polaroid-flip-review/flash-collage.jpg" referrerpolicy="no-referrer" alt="4 example images showing powerful flash from the Flip"></p><p><em><span>4 examples showcasing the exceptional flash power of the Flip. Starting from the top left photo and working left to right:</span></em></p><p><span>Image 1: Taken with nearly no artificial light source around (the only light lighting the scene was the Flip&#39;s flash). The Flip&#39;s flash managed to light the entire square, illuminating the performer and the audience behind him perfectly.</span></p><p><span>Image 2: Taken in complete darkness. The only light source is the Flip&#39;s flash. As shown, the Flip lit up the subject and the storefront.</span></p><p><span>Image 3: Similarly taken in near-complete darkness. The Flip perfectly lit the subject and some of the environment.</span></p><p><span>Image 4: Taken in minimal light at dusk. The Flip&#39;s flash perfectly illuminated the subject and even some of the road sign behind her, enabling this very moody portrait.</span></p><p>&nbsp;</p><hr /><p><img src="res/polaroid-flip-review/bokeh-collage.jpg" referrerpolicy="no-referrer" alt="4 example images showing beautiful bokeh from the Flip"></p><p><em><span>4 examples showcasing the beautiful bokeh and shallow depth-of-field of the Flip. Starting from the top left photo and working left to right:</span></em></p><p><span>Image 1: Classic shallow depth-of-field portrait taken with the Flip; the background is beautifully blurred into a creamy white thanks to shallow depth-of-field (and some flaring)</span></p><p><span>Image 2: The Eiffel Tower&#39;s lights at night transformed into stunning bokeh balls thanks to the Flip. The balls are surprisingly round and clean; upon closer inspection, the bokeh balls do lose their roundness near the edge of the frame and have a distinct blue border, but who&#39;s pixel-peeping on instant film?</span></p><p><span>Image 3: A restaurant&#39;s lights transform into beautiful little bokeh balls on the Flip. There even appears to be a minor swirl going on.</span></p><p><span>Image 4: Another classic depth-of-field portrait, this time more subtle. The buildings beautifully transition from a slight blur to a more noticeable blur from right to left as distance from the camera increases.</span></p><p><span>Overall, the Flip&#39;s lens is capable of shallow depth-of-field (which makes sense, given the Flip&#39;s lens is approximately equivalent to a 40mm f/4 on full frame in terms of depth-of-field characteristics) and can, in the right lighting conditions and if the Flip is feeling it, produce incredibly nice bokeh balls with some of the character you&#39;d expect from a vintage lens.</span></p><h2 id='miscellaneous-some-small-gripes-and-delights-with-the-flip'><span>Miscellaneous: Some small gripes and delights with the Flip</span></h2><p><span>Now for some rapid-fire gripes (and delights) with the Flip:</span></p><ul><li><p><strong><span>MFD alerts in manual mode</span></strong><span>: The Flip&#39;s minimum focus alert (where the camera refuses to shoot when the sonar detects that the subject is too close for the lens) cannot be overridden and triggers even when the camera is in manual focus mode. This makes it difficult to use the Flip for shooting through windows</span></p></li><li><p><strong><span>A responsive and full-featured app</span></strong><span>: The app connects instantly to the camera most of the time, is beautifully designed, and provides exceptionally rich control over the Flip. The only gripe I have with the app is the lack of a timed exposure mode for extremely long exposures exceeding 30 seconds.</span></p></li><li><p><strong><span>Potential connectivity issues</span></strong><span>: For extremely long exposures, I use the Polaroid app on my Apple Silicon MacBook Pro with a macro to stop the exposure at a precise time. However, the Flip often disconnects after about 1.5 hours of exposure (which ends the exposure and ejects the image); the devices are in close proximity.</span></p></li><li><p><strong><span>Mirror dust</span></strong><span>: About 350 photos in, spots started appearing on my photos (see example below). I purchased many more packs of film, cleaned my rollers, and otherwise meticulously followed Polaroid and many others&#39; camera care guides to no avail. The issue turned out to be dust on the internal mirror and a rocket blower fixed the issue. Nowhere is this stated in any guide that I know of, and this has led to many photos with noticeable dust spots. Ironically, I have yet to have roller problems even 1000 photos in despite every Polaroid maintenance article and video discussing dirty rollers.</span></p></li><li><p><strong><span>Shooting delay</span></strong><span>: There is very rarely an unpredictable slight delay (a bit over a second) between when the shutter button is pressed and when the camera fires.</span></p></li><li><p><strong><span>General gripes with the film</span></strong><span>: Polaroid film is softer, more expensive, less stable (some of my B&amp;W Polaroids have significantly browned after just two months) and more finicky with regard to storage, temperature, and light shielding. But I found the color science and experience of Polaroid cameras well worth the film&#39;s shortcomings.</span></p></li></ul><p>&nbsp;</p><p><img src="res/polaroid-flip-review/dust-example.jpg" referrerpolicy="no-referrer" alt="Dust example"></p><p><em><span>An example of mirror dust on the Polaroid Flip. There is one major speck of dust visible on the top-center-right of the image, with 6 more pieces of smaller dust visible in the top sky region as well.</span></em></p><h2 id='conclusions-a-mighty-though-unpredictable-instant-point-and-shoot-with-depth'><span>Conclusions: A mighty (though unpredictable) instant point-and-shoot with depth</span></h2><p><span>After a thousand shots, I have found the Flip to be an incredible yet flawed point-and-shoot. It has been with me, capturing my favorite moments of the last 3 months. Its beautiful design and generally reliable meter combined with its mighty potential in manual mode </span><strong><span>make it perfect for the photographically-inclined consumer looking to shoot instant film.</span></strong><span> Although the film is shockingly expensive at </span><span>$</span><span>2/exposure, I think the </span><span>$</span><span>200 MSRP for the Flip is quite cheap for this caliber of camera.</span></p><p><span>As a photography enthusiast, I don&#39;t think the Flip was designed for me. Given that, I think the fun and love I have for this camera speak volumes to the Flip being an amazing tool for both capturing life and deliberate photography. </span></p><p><span>I have since purchased (but have yet to receive) a Polaroid I-2 for more reliable autofocus, less flare, and a larger viewfinder and expect it to be a significant improvement on what I (and other experienced photographers) need out of a camera. However, I still expect to continue to use the Flip for its more powerful flash, reliable meter, and its clamshell design.</span></p><p>&nbsp;</p><h2 id='image-gallery'><span>Image Gallery</span></h2><p><span>At the very end, I would like to share my favorite photos taken on the Flip aside from the ones outlined in this report. Some I love for personal reasons, some I love because they&#39;re artistic, some I love because they&#39;re pretty. This report has been harsh at times. Ultimately, gear is secondary to the moment and the skill of the photographer, and the Flip is a perfectly competent camera for capturing that moment of joy, human connection, art, or just seeing a pretty thing. </span></p><hr /><p><img src="res/polaroid-flip-review/flip-best.jpg" referrerpolicy="no-referrer" alt="A collection of 16 photos shot on the Polaroid Flip"></p><p><em><span>16 images, shot on the Polaroid Flip. Photos were not edited after scanning. Contrast, color, and detail are worse on scans (especially unedited ones) than the physical print. Manual exposure and focus used for images 3, 4, 8, 13, 14, 15, and 16.</span></em></p><hr /><p><em><span>This report is human-written; generative AI was used only for proofreading and critical feedback.</span></em></p></div></div>
+</body>
+</html>
